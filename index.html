@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meme Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <h1>Project on API Meme Generator</h1>
+
+        <button class="btn" >Generate Meme</button>
+        <div class="meme-container">
+            <h2 class="meme-title"></h2>
+            <img class="meme-image" src="">
+            <p class="author">Meme Created by: <span class="auth"></span></p>
+        </div>
+    </div>
+    <script>
+        // https://meme-api.com/gimme/wholesomememes
+        const memeBtn = document.querySelector(".btn");
+        const memeTitle = document.querySelector(".meme-title");
+        const memeImage = document.querySelector(".meme-image");
+        const authorOutput = document.querySelector(".author span");
+        function getMeme(){
+            fetch("https://meme-api.com/gimme/wholesomememes").
+            then((res)=>res.json()).
+            then((data)=>{
+                const {author, title, url} = data;
+                console.log(data);
+                console.log(author,title,url);
+                authorOutput.innerText = author;
+                memeImage.setAttribute("src",url);
+                memeTitle.innerText = title;
+            })
+        }
+        getMeme();
+        memeBtn.addEventListener('click',getMeme);
+    </script>
+</body>
+</html>
