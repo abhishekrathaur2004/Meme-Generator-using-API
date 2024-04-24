@@ -4,8 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>meme Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 214, 190);
+    height: 100vh;
+}
+.btn{
+    border: 1px solid rgb(12, 12, 12);
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: aliceblue;
+    background-color: rgb(34, 8, 114);
+    cursor: pointer;
+}
+.meme-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.meme-container .meme-image{
+    height: 450px;
+    width: 450px;
+}
+.auth{
+    font-weight: bolder;
+}
+</style>
 <body>
     <div class="main">
         <h1>Project on API Meme Generator</h1>
@@ -28,8 +66,8 @@
             then((res)=>res.json()).
             then((data)=>{
                 const {author, title, url} = data;
-                console.log(data);
-                console.log(author,title,url);
+                // console.log(data);
+                // console.log(author,title,url);
                 authorOutput.innerText = author;
                 memeImage.setAttribute("src",url);
                 memeTitle.innerText = title;
